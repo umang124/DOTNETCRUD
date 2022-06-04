@@ -1,0 +1,39 @@
+﻿@page
+@model Razor_Page_CRUD_NET.Pages.Clients.CreateModel
+@{
+}
+
+<h2>Add New Client</h2>
+
+
+@if (Model.errorMessage.Length > 0) 
+{
+    <div class="alert alert-warning d-flex align-items-center" role="alert">
+      <strong>@Model.errorMessage</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (Model.successMessage.Length > 0)
+{
+    <div class="alert alert-success d-flex align-items-center" role="alert">
+      <strong>@Model.successMessage</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<form method="POST">
+  <div class="mb-3">
+    <label for="name" class="form-label">name</label>
+    <input type="text" class="form-control" name="name" value="@Model.clientInfo.name">
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" name="email" value="@Model.clientInfo.email">
+  </div>
+  <div class="mb-3">
+    <label for="phone" class="form-label">Phone</label>
+    <input type="text" class="form-control" name="phone" value="@Model.clientInfo.phone">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
